@@ -34,97 +34,97 @@ function _parse_generated_data(
     result
 end
 
-const PREGENERATED_D1V4_RES128 = _parse_generated_data(include("generated_d1v4_res128.jl"))
-const PREGENERATED_D1V4_RES1024 = _parse_generated_data(include("generated_d1v4_res1024.jl"))
-const PREGENERATED_D1V4_RES8192 = _parse_generated_data(include("generated_d1v4_res8192.jl"))
-const PREGENERATED_D1V4_RES32768 = _parse_generated_data(include("generated_d1v4_res32768.jl"))
-const PREGENERATED_D1V4 = PREGENERATED_D1V4_RES32768
+const PREGENERATED_1D4V_RES128 = _parse_generated_data(include("generated_1d4v_res128.jl"))
+const PREGENERATED_1D4V_RES1024 = _parse_generated_data(include("generated_1d4v_res1024.jl"))
+const PREGENERATED_1D4V_RES8192 = _parse_generated_data(include("generated_1d4v_res8192.jl"))
+const PREGENERATED_1D4V_RES32768 = _parse_generated_data(include("generated_1d4v_res32768.jl"))
+const PREGENERATED_1D4V = PREGENERATED_1D4V_RES32768
 
-const PREGENERATED_D2V4_RES32 = _parse_generated_data(include("generated_d2v4_res32.jl"))
-const PREGENERATED_D2V4_RES128 = _parse_generated_data(include("generated_d2v4_res128.jl"))
-const PREGENERATED_D2V4_RES512 = _parse_generated_data(include("generated_d2v4_res512.jl"))
-const PREGENERATED_D2V4_RES1024 = _parse_generated_data(include("generated_d2v4_res1024.jl"))
-const PREGENERATED_D2V4 = PREGENERATED_D2V4_RES1024
+const PREGENERATED_2D4V_RES32 = _parse_generated_data(include("generated_2d4v_res32.jl"))
+const PREGENERATED_2D4V_RES128 = _parse_generated_data(include("generated_2d4v_res128.jl"))
+const PREGENERATED_2D4V_RES512 = _parse_generated_data(include("generated_2d4v_res512.jl"))
+const PREGENERATED_2D4V_RES1024 = _parse_generated_data(include("generated_2d4v_res1024.jl"))
+const PREGENERATED_2D4V = PREGENERATED_2D4V_RES1024
 
-const PREGENERATED_D3V4_RES16 = _parse_generated_data(include("generated_d3v4_res16.jl"))
-const PREGENERATED_D3V4_RES32 = _parse_generated_data(include("generated_d3v4_res32.jl"))
-const PREGENERATED_D3V4_RES64 = _parse_generated_data(include("generated_d3v4_res64.jl"))
-const PREGENERATED_D3V4 = PREGENERATED_D3V4_RES64
+const PREGENERATED_3D4V_RES16 = _parse_generated_data(include("generated_3d4v_res16.jl"))
+const PREGENERATED_3D4V_RES32 = _parse_generated_data(include("generated_3d4v_res32.jl"))
+const PREGENERATED_3D4V_RES64 = _parse_generated_data(include("generated_3d4v_res64.jl"))
+const PREGENERATED_3D4V = PREGENERATED_3D4V_RES64
 
-blue_noise_d1v4(x::Int)::Vector{Float64} = PREGENERATED_D1V4[
-    mod1(x, size(PREGENERATED_D1V4)[1]), 
+blue_noise_1d4v(x::Int)::Vector{Float64} = PREGENERATED_1D4V[
+    mod1(x, size(PREGENERATED_1D4V)[1]), 
     1:4
 ]
 
-blue_noise_d1v3(x::Int)::Vector{Float64} = PREGENERATED_D1V4[
-    mod1(x, size(PREGENERATED_D1V4)[1]), 
+blue_noise_1d3v(x::Int)::Vector{Float64} = PREGENERATED_1D4V[
+    mod1(x, size(PREGENERATED_1D4V)[1]), 
     1:3
 ]
 
-blue_noise_d1v2(x::Int)::Vector{Float64} = PREGENERATED_D1V4[
-    mod1(x, size(PREGENERATED_D1V4)[1]), 
+blue_noise_1d2v(x::Int)::Vector{Float64} = PREGENERATED_1D4V[
+    mod1(x, size(PREGENERATED_1D4V)[1]), 
     1:2
 ]
 
-blue_noise_d1v1(x::Int)::Float64 = PREGENERATED_D1V4[
-    mod1(x, size(PREGENERATED_D1V4)[1]), 
+blue_noise_1d1v(x::Int)::Float64 = PREGENERATED_1D4V[
+    mod1(x, size(PREGENERATED_1D4V)[1]), 
     1
 ]
 
-blue_noise_d2v4(x::Int, y::Int)::Vector{Float64} = PREGENERATED_D2V4[
-    mod1(x, size(PREGENERATED_D2V4)[1]), 
-    mod1(y, size(PREGENERATED_D2V4)[2]), 
+blue_noise_2d4v(x::Int, y::Int)::Vector{Float64} = PREGENERATED_2D4V[
+    mod1(x, size(PREGENERATED_2D4V)[1]), 
+    mod1(y, size(PREGENERATED_2D4V)[2]), 
     1:4
 ]
 
-blue_noise_d2v3(x::Int, y::Int)::Vector{Float64} = PREGENERATED_D2V4[
-    mod1(x, size(PREGENERATED_D2V4)[1]), 
-    mod1(y, size(PREGENERATED_D2V4)[2]), 
+blue_noise_2d3v(x::Int, y::Int)::Vector{Float64} = PREGENERATED_2D4V[
+    mod1(x, size(PREGENERATED_2D4V)[1]), 
+    mod1(y, size(PREGENERATED_2D4V)[2]), 
     1:3
 ]
 
-blue_noise_d2v2(x::Int, y::Int)::Vector{Float64} = PREGENERATED_D2V4[
-    mod1(x, size(PREGENERATED_D2V4)[1]), 
-    mod1(y, size(PREGENERATED_D2V4)[2]), 
+blue_noise_2d2v(x::Int, y::Int)::Vector{Float64} = PREGENERATED_2D4V[
+    mod1(x, size(PREGENERATED_2D4V)[1]), 
+    mod1(y, size(PREGENERATED_2D4V)[2]), 
     1:2
 ]
 
-blue_noise_d2v1(x::Int, y::Int)::Float64 = PREGENERATED_D2V4[
-    mod1(x, size(PREGENERATED_D2V4)[1]), 
-    mod1(y, size(PREGENERATED_D2V4)[2]), 
+blue_noise_2d1v(x::Int, y::Int)::Float64 = PREGENERATED_2D4V[
+    mod1(x, size(PREGENERATED_2D4V)[1]), 
+    mod1(y, size(PREGENERATED_2D4V)[2]), 
     1
 ]
 
-blue_noise_d3v4(x::Int, y::Int, z::Int)::Vector{Float64} = PREGENERATED_D3V4[
-    mod1(x, size(PREGENERATED_D3V4)[1]), 
-    mod1(y, size(PREGENERATED_D3V4)[2]), 
-    mod1(z, size(PREGENERATED_D3V4)[3]), 
+blue_noise_3d4v(x::Int, y::Int, z::Int)::Vector{Float64} = PREGENERATED_3D4V[
+    mod1(x, size(PREGENERATED_3D4V)[1]), 
+    mod1(y, size(PREGENERATED_3D4V)[2]), 
+    mod1(z, size(PREGENERATED_3D4V)[3]), 
     1:4
 ]
 
-blue_noise_d3v3(x::Int, y::Int, z::Int)::Vector{Float64} = PREGENERATED_D3V4[
-    mod1(x, size(PREGENERATED_D3V4)[1]), 
-    mod1(y, size(PREGENERATED_D3V4)[2]), 
-    mod1(z, size(PREGENERATED_D3V4)[3]), 
+blue_noise_3d3v(x::Int, y::Int, z::Int)::Vector{Float64} = PREGENERATED_3D4V[
+    mod1(x, size(PREGENERATED_3D4V)[1]), 
+    mod1(y, size(PREGENERATED_3D4V)[2]), 
+    mod1(z, size(PREGENERATED_3D4V)[3]), 
     1:3
 ]
 
-blue_noise_d3v2(x::Int, y::Int, z::Int)::Vector{Float64} = PREGENERATED_D3V4[
-    mod1(x, size(PREGENERATED_D3V4)[1]), 
-    mod1(y, size(PREGENERATED_D3V4)[2]), 
-    mod1(z, size(PREGENERATED_D3V4)[3]), 
+blue_noise_3d2v(x::Int, y::Int, z::Int)::Vector{Float64} = PREGENERATED_3D4V[
+    mod1(x, size(PREGENERATED_3D4V)[1]), 
+    mod1(y, size(PREGENERATED_3D4V)[2]), 
+    mod1(z, size(PREGENERATED_3D4V)[3]), 
     1:2
 ]
 
-blue_noise_d3v1(x::Int, y::Int, z::Int)::Float64 = PREGENERATED_D3V4[
-    mod1(x, size(PREGENERATED_D3V4)[1]), 
-    mod1(y, size(PREGENERATED_D3V4)[2]), 
-    mod1(z, size(PREGENERATED_D3V4)[3]), 
+blue_noise_3d1v(x::Int, y::Int, z::Int)::Float64 = PREGENERATED_3D4V[
+    mod1(x, size(PREGENERATED_3D4V)[1]), 
+    mod1(y, size(PREGENERATED_3D4V)[2]), 
+    mod1(z, size(PREGENERATED_3D4V)[3]), 
     1
 ]
 
-export blue_noise_d1v1, blue_noise_d1v2, blue_noise_d1v3, blue_noise_d1v4
-export blue_noise_d2v1, blue_noise_d2v2, blue_noise_d2v3, blue_noise_d2v4
-export blue_noise_d3v1, blue_noise_d3v2, blue_noise_d3v3, blue_noise_d3v4
+export blue_noise_1d1v, blue_noise_1d2v, blue_noise_1d3v, blue_noise_1d4v
+export blue_noise_2d1v, blue_noise_2d2v, blue_noise_2d3v, blue_noise_2d4v
+export blue_noise_3d1v, blue_noise_3d2v, blue_noise_3d3v, blue_noise_3d4v
 
 end # module

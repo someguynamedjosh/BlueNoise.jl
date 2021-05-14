@@ -256,7 +256,7 @@ function make_noise(dim::Val{D}, size::Val{S}, channels::Int) where {D,S}
     serialized = serialize(data)
     open(
         f -> write(f, serialized), 
-        "BlueNoise/src/generated_d$(D)v$(channels)_res$(S).jl",
+        "BlueNoise/src/generated_$(D)d$(channels)v_res$(S).jl",
         "w"
     )
 end
