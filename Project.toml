@@ -1,4 +1,7 @@
 name = "BlueNoise"
 uuid = "9ae74011-d0f3-412c-a047-ea779e11a931"
 authors = ["joshua-maros <60271685+joshua-maros@users.noreply.github.com>"]
-version = "0.1.1"
+version = "0.1.0"
+
+[compat]
+julia = "1.0 - 1.6"
